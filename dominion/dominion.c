@@ -1465,6 +1465,10 @@ int updateCoins(int player, struct gameState *state, int bonus)
 /**********************************************************************
 * Assignment 2: Function Refactoring
 ***********************************************************************/
+
+/**********************************************************************
+* Function Refactor: adventurerEffect
+***********************************************************************/
 int adventurerEffect(struct gameState *gstate, int curPlayer, int tempHand[], int tempCount)
 {
   int drawntreasure = 0;
@@ -1493,6 +1497,22 @@ int adventurerEffect(struct gameState *gstate, int curPlayer, int tempHand[], in
 
 }
 
+/**********************************************************************
+* Function Refactor: smithyEffect
+***********************************************************************/
+int smithyEffect(struct gameState *gstate, int curPlayer, int handPosition)
+{
+    //+3 Cards
+    for (int i = 0; i < 3; i++)
+    {
+      drawCard(curPlayer, gstate);
+    }
+
+    //discard card from hand
+    discardCard(handPosition, curPlayer, gstate, 0);
+    return 0;
+
+}
 
 
 //end of dominion.c
