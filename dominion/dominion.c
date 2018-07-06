@@ -1387,7 +1387,7 @@ int adventurerEffect(struct gameState *gstate, int curPlayer, int tempHand[], in
   int drawntreasure = 0;
   int cardDrawn;
 
-  if (gstate->deckCount[curPlayer] < 1)
+  if (gstate->deckCount[curPlayer] < 2)
   { //if the deck is empty we need to shuffle discard and add to deck
     shuffle(curPlayer, gstate);
   }
@@ -1416,7 +1416,7 @@ int adventurerEffect(struct gameState *gstate, int curPlayer, int tempHand[], in
 int smithyEffect(struct gameState *gstate, int curPlayer, int handPosition)
 {
     //+3 Cards
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i <= 3; i++)
     {
       drawCard(curPlayer, gstate);
     }
@@ -1439,7 +1439,7 @@ int mineEffect(struct gameState *gstate, int curPlayer, int choiceA, int choiceB
       return -1;
     }
 
-    if (choiceB > treasure_map || choiceB < curse)
+    if (choiceB > treasure_map && choiceB < curse)
     {
       return -1;
     }
@@ -1475,7 +1475,7 @@ int salvagerEffect(struct gameState *gstate, int curPlayer, int choiceA, int han
     //+1 buy
     gstate->numBuys++;
 
-    if (choiceA)
+    if (!choiceA)
     {
       //gain coins equal to trashed card
       gstate->coins = gstate->coins + getCost(handCard(choiceA, gstate));
