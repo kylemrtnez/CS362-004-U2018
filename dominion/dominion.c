@@ -1554,5 +1554,25 @@ int mineEffect(struct gameState *gstate, int curPlayer, int choiceA, int choiceB
     return 0;
 }
 
+/**********************************************************************
+* Function Refactor: salvagerEffect
+***********************************************************************/
+int salvagerEffect(struct gameState *gstate, int curPlayer, int choiceA)
+{
+    //+1 buy
+    gstate->numBuys++;
+
+    if (choiceA)
+    {
+      //gain coins equal to trashed card
+      gstate->coins = gstate->coins + getCost(handCard(choiceA, gstate));
+      //trash card
+      discardCard(choiceA, curPlayer, gstate, 1);
+    }
+
+    //discard card
+    discardCard(handPos, curPlayer, gstate, 0);
+    return 0;
+}
 
 //end of dominion.c
