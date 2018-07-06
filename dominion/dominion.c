@@ -1386,21 +1386,24 @@ int adventurerEffect(struct gameState *gstate, int curPlayer, int tempHand[], in
 {
   int drawntreasure = 0;
   int cardDrawn;
-
-  if (gstate->deckCount[curPlayer] < 2)
-  { //if the deck is empty we need to shuffle discard and add to deck
-    shuffle(curPlayer, gstate);
-  }
-  drawCard(curPlayer, gstate);
-  cardDrawn = gstate->hand[curPlayer][gstate->handCount[curPlayer] - 1]; //top card of hand is most recently drawn card.
-  if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
-    drawntreasure++;
-  else
+  while (drawntreasure < 2) 
   {
-    tempHand[tempCount] = cardDrawn;
-    gstate->handCount[curPlayer]--; //this should just remove the top card (the most recently drawn one).
-    tempCount++;
+    if (gstate->deckCount[curPlayer] < 2)
+    { //if the deck is empty we need to shuffle discard and add to deck
+      shuffle(curPlayer, gstate);
+    }
+    drawCard(curPlayer, gstate);
+    cardDrawn = gstate->hand[curPlayer][gstate->handCount[curPlayer] - 1]; //top card of hand is most recently drawn card.
+    if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+      drawntreasure++;
+    else
+    {
+      tempHand[tempCount] = cardDrawn;
+      gstate->handCount[curPlayer]--; //this should just remove the top card (the most recently drawn one).
+      tempCount++;
+    }
   }
+  
   while (tempCount - 1 >= 0)
   {
     gstate->discard[curPlayer][gstate->discardCount[curPlayer]++] = tempHand[tempCount - 1]; // discard all cards in play that have been drawn
