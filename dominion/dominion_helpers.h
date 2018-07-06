@@ -12,10 +12,11 @@ int getCost(int cardNumber);
 int cardEffect(int card, int choice1, int choice2, int choice3, 
 	       struct gameState *state, int handPos, int *bonus);
 
+// Assignment 2: Refactored card effects as functions
 int adventurerEffect(struct gameState *gstate, int curPlayer, int tempHand[], int tempCount);
-
 int smithyEffect(struct gameState *gstate, int curPlayer, int handPosition);
-int mineEffect(struct gameState *gstate, int curPlayer, int choiceA, int choiceB);
-
+int mineEffect(struct gameState *gstate, int curPlayer, int choiceA, int choiceB, int handPosition);
+int salvagerEffect(struct gameState *gstate, int curPlayer, int choiceA, int handPosition);
+int greathallEffect(struct gameState *gstate, int curPlayer, int handPosition);
 
 #endif

@@ -1557,7 +1557,7 @@ int mineEffect(struct gameState *gstate, int curPlayer, int choiceA, int choiceB
 /**********************************************************************
 * Function Refactor: salvagerEffect
 ***********************************************************************/
-int salvagerEffect(struct gameState *gstate, int curPlayer, int choiceA)
+int salvagerEffect(struct gameState *gstate, int curPlayer, int choiceA, int handPosition)
 {
     //+1 buy
     gstate->numBuys++;
@@ -1571,7 +1571,23 @@ int salvagerEffect(struct gameState *gstate, int curPlayer, int choiceA)
     }
 
     //discard card
-    discardCard(handPos, curPlayer, gstate, 0);
+    discardCard(handPosition, curPlayer, gstate, 0);
+    return 0;
+}
+
+/**********************************************************************
+* Function refactor; greathallEffect
+***********************************************************************/
+int greathallEffect(struct gameState *gstate, int curPlayer, int handPosition)
+{
+      //+1 Card
+    drawCard(curPlayer, gstate);
+
+    //+1 Actions
+    gstate->numActions++;
+
+    //discard card from hand
+    discardCard(handPosition, curPlayer, gstate, 0);
     return 0;
 }
 
