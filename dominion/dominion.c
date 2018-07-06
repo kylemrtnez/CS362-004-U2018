@@ -1514,5 +1514,45 @@ int smithyEffect(struct gameState *gstate, int curPlayer, int handPosition)
 
 }
 
+/**********************************************************************
+* Function Refactor: mineEffect
+***********************************************************************/
+int mineEffect(struct gameState *gstate, int curPlayer, int choiceA, int choiceB, int handPosition)
+{
+    int j = gstate->hand[curPlayer][choiceA]; //store card we will trash
+
+    if (gstate->hand[curPlayer][choiceA] < copper || gstate->hand[curPlayer][choiceA] > gold)
+    {
+      return -1;
+    }
+
+    if (choiceB > treasure_map || choiceB < curse)
+    {
+      return -1;
+    }
+
+    if ((getCost(gstate->hand[curPlayer][choiceA]) + 3) > getCost(choiceB))
+    {
+      return -1;
+    }
+
+    gainCard(choiceB, gstate, 2, curPlayer);
+
+    //discard card from hand
+    discardCard(handPosition, curPlayer, gstate, 0);
+
+    //discard trashed card
+    for (int i = 0; i < gstate->handCount[curPlayer]; i++)
+    {
+      if (gstate->hand[curPlayer][i] == j)
+      {
+        discardCard(i, curPlayer, gstate, 0);
+        break;
+      }
+    }
+
+    return 0;
+}
+
 
 //end of dominion.c
