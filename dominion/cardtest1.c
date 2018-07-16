@@ -13,56 +13,13 @@
 #include "rngs.h"
 
 /**********************************************************************
-* Description: Helper function for unit testing. "Paves" over the 
-*              provided player's deck, turning all cards to estates.
+* Prototypes
 ***********************************************************************/
-int paveDeck(struct gameState *state, int playerNum)
-{
-  for (int i = 0; i < state->deckCount[playerNum]; i++)
-  {
-    // pave over initialized decks, giving only estates. We will hand-place treasures
-    state->deck[playerNum][i] = estate;
-  }
-  return 0;
-}
-/**********************************************************************
-* Description: Helper function for unit testing. "Paves" over the 
-*              provided player's hand, turning all cards to estates.
-***********************************************************************/
-int paveHand(struct gameState *state, int playerNum)
-{
-  for (int i = 0; i < state->handCount[playerNum]; i++)
-  {
-    // pave over initialized decks, giving only estates. We will hand-place treasures
-    state->hand[playerNum][i] = estate;
-  }
-  return 0;
-}
-
-void printDeck(struct gameState *state, int printUntil, int player)
-{
-  for (int i = 0; i < printUntil; i++)
-  {
-    printf("Deck pos %d: %d\n", i, state->deck[player][i]);
-  }
-}
-
-void printHand(struct gameState *state, int printUntil, int player)
-{
-  for (int i = 0; i < printUntil; i++)
-  {
-    printf("Hand pos %d: %d\n", i, state->hand[player][i]);
-  }
-}
-/**********************************************************************
-* Helper function to add adventurer to test player's hand. Purpose is
-* to mainly couple the handcount increment with the addition.
-***********************************************************************/
-void addAdventurer(struct gameState *state, int handPos, int player)
-{
-  state->handCount[player]++;
-  state->hand[player][handPos] = adventurer;
-}
+int paveDeck(struct gameState *state, int playerNum);
+int paveHand(struct gameState *state, int playerNum);
+void printDeck(struct gameState *state, int printUntil, int player);
+void printHand(struct gameState *state, int printUntil, int player);
+void addAdventurer(struct gameState *state, int handPos, int player);
 
 /**********************************************************************
 * Unit test for the Adventurer card implementation
@@ -208,4 +165,61 @@ int main(int argc, char **argv)
   printf("*** Adventurer card effect - PASSED - tests complete ***\n\n");
 
   return 0;
+}
+
+/**********************************************************************
+* Description: Helper function for unit testing. "Paves" over the 
+*              provided player's deck, turning all cards to estates.
+***********************************************************************/
+int paveDeck(struct gameState *state, int playerNum)
+{
+  for (int i = 0; i < state->deckCount[playerNum]; i++)
+  {
+    // pave over initialized decks, giving only estates. We will hand-place treasures
+    state->deck[playerNum][i] = estate;
+  }
+  return 0;
+}
+/**********************************************************************
+* Description: Helper function for unit testing. "Paves" over the 
+*              provided player's hand, turning all cards to estates.
+***********************************************************************/
+int paveHand(struct gameState *state, int playerNum)
+{
+  for (int i = 0; i < state->handCount[playerNum]; i++)
+  {
+    // pave over initialized decks, giving only estates. We will hand-place treasures
+    state->hand[playerNum][i] = estate;
+  }
+  return 0;
+}
+
+/**********************************************************************
+* Description: Prints a specified deck, card by card
+***********************************************************************/
+void printDeck(struct gameState *state, int printUntil, int player)
+{
+  for (int i = 0; i < printUntil; i++)
+  {
+    printf("Deck pos %d: %d\n", i, state->deck[player][i]);
+  }
+}
+/**********************************************************************
+* Description: Prints a specified hand, card by card
+***********************************************************************/
+void printHand(struct gameState *state, int printUntil, int player)
+{
+  for (int i = 0; i < printUntil; i++)
+  {
+    printf("Hand pos %d: %d\n", i, state->hand[player][i]);
+  }
+}
+/**********************************************************************
+* Helper function to add adventurer to test player's hand. Purpose is
+* to mainly couple the handcount increment with the addition.
+***********************************************************************/
+void addAdventurer(struct gameState *state, int handPos, int player)
+{
+  state->handCount[player]++;
+  state->hand[player][handPos] = adventurer;
 }
