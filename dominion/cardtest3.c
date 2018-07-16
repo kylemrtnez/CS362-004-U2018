@@ -46,11 +46,18 @@ int main(int argc, char **argv)
 
   // check vs the logged figures
   // Hand s/b -1 for the played village, +1 for the draw in village effect
-  // Actions s/b +2
-  assert(GS.handCount[player0] == numHandCheck);
-  assert(GS.numActions == numActionsCheck + 2);
+  if (GS.handCount[player0] == numHandCheck)
+    printf("PASSED: hand counts correct\n");
+  else
+    printf("FAILED: hand counts incorrect\n");
 
-  printf("*** Village card effect: PASSED - Testing complete ***\n");
+  // Actions s/b +2
+  if (GS.numActions == numActionsCheck + 2)
+    printf("PASSED: Number of actions correct\n");
+  else
+    printf("FAILED: Number of actions incorrect\n");
+
+  printf("*** Village card effect: Testing complete ***\n");
 
   return 0;
 }
