@@ -29,9 +29,6 @@ int main()
     int startCoppers = 7;
     int startEstates = 3;
     int player0 = 0;
-    int gainToDiscard = 0;
-    int gainToDeck = 1;
-    int gainToHand = 2;
 
     // test starting deck values - should be 7 coppers and 3 estates
     printf("***  Testing fullDeckCount()  ***\n");
@@ -41,17 +38,20 @@ int main()
     printf("fullDeckCount(): PASSED - correct values after initialization\n");
 
     // test adding an estate to discard
-    gainCard(estate, &GS, gainToDiscard, player0);    
+    GS.discard[player0][GS.discardCount[player0]] = estate;
+    GS.discardCount[player0]++;
     assert(fullDeckCount(player0, estate, &GS) == startEstates + 1);
     printf("fullDeckCount(): PASSED - correct values after adding to discard\n");
 
     // test adding an estate to deck
-    gainCard(estate, &GS, gainToDeck, player0);    
+    GS.deck[player0][GS.deckCount[player0]] = estate;
+    GS.deckCount[player0]++;
     assert(fullDeckCount(player0, estate, &GS) == startEstates + 2);
     printf("fullDeckCount(): PASSED - correct values after adding to deck\n");
 
     // test adding an estate to hand
-    gainCard(estate, &GS, gainToHand, player0);    
+    GS.deck[player0][GS.deckCount[player0]] = estate;
+    GS.deckCount[player0]++;
     assert(fullDeckCount(player0, estate, &GS) == startEstates + 3);
     printf("fullDeckCount(): PASSED - correct values after adding to hand\n");
 
