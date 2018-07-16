@@ -12,7 +12,7 @@
 #include <assert.h>
 #include "rngs.h"
 
-#define NOISY_TEST 0
+#define NOISY_TEST 1
 
 /**********************************************************************
 * Smithy Test Cases:
@@ -49,8 +49,10 @@ int main(int argc, char **argv)
   } 
   #endif
 
-  assert(handSize + 2 == GS.handCount[player0]); // only +2 cards because smithy itself is discarded
-  printf("PASSED - Deck size > 3 cards\n");
+  if (handSize + 2 == GS.handCount[player0]) // only +2 cards because smithy itself is discarded
+    printf("PASSED 1: Hand count correct.\n");
+  else
+    printf("FAILED 1: Hand count incorrect.\n");
 
   /**********************************************************************
   * Test case: Deck has 3 cards
@@ -78,8 +80,11 @@ int main(int argc, char **argv)
   } 
   #endif
 
-  assert((handSize + 2) == GS.handCount[player0]); // only + 2 cards because smithy itself is discarded
-  printf("PASSED - Deck size == 3 cards\n");
+  if ((handSize + 2) == GS.handCount[player0]) // only + 2 cards because smithy itself is discarded
+    printf("PASSED 2: Hand count correct.\n");
+  else
+    printf("FAILED 2: Hand count incorrect.\n");
+
   /**********************************************************************
   * Test case: Deck has less than 3 cards
   ***********************************************************************/
@@ -107,8 +112,11 @@ int main(int argc, char **argv)
   } 
   #endif
 
-  assert(handSize + 2 == GS.handCount[player0]); // only +2 cards because smithy itself should be discarded
-  printf("PASSED - Deck size < 3 cards\n");
+  if (handSize + 2 == GS.handCount[player0]) // only +2 cards because smithy itself should be discarded
+    printf("PASSED 3: Hand count correct.\n");
+  else
+    printf("FAILED 3: Hand count incorrect.\n");
 
+  printf("*** Smithy card effect: Testing complete ***\n");
   return 0;
 }
