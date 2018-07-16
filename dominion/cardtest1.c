@@ -77,7 +77,7 @@ int main(int argc, char **argv)
                     cutpurse, sea_hag, tribute, smithy};
   int r, coinBonus = 0;
 
-  printf("*** Adventurer card effect: Testing begins ***\n")
+  printf("*** Adventurer card effect: Testing begins ***\n");
   /**********************************************************************
     * Test case: First 2 cards are treasures
     ***********************************************************************/
