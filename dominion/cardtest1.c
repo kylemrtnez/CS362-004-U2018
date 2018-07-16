@@ -50,7 +50,7 @@ int main(int argc, char **argv)
   GS.deck[player0][3] = copper;
   GS.deck[player0][4] = silver;
 
-  GS.handCount[player0]--; // should get rid of the adventurer we are about to play
+  //GS.handCount[player0]--; // should get rid of the adventurer we are about to play
   cardEffect(adventurer, -1, -1, -1, &GS, 5, &coinBonus);
 
   // stops after 2 cards
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
   GS.deck[player0][1] = copper;
 
   addAdventurer(&GS, 5, player0);
-  GS.handCount[player0]--; // should get rid of the adventurer we are about to play
+  //GS.handCount[player0]--; // should get rid of the adventurer we are about to play
   cardEffect(adventurer, -1, -1, -1, &GS, 5, &coinBonus);
 
   // no cards left in deck
@@ -122,7 +122,7 @@ int main(int argc, char **argv)
   GS.deck[player0][4] = gold;
 
   addAdventurer(&GS, 5, player0);
-  GS.handCount[player0]--; // should get rid of the adventurer we are about to play
+  //GS.handCount[player0]--; // should get rid of the adventurer we are about to play
   cardEffect(adventurer, -1, -1, -1, &GS, 5, &coinBonus);
 
   // 1 card left in deck
@@ -160,7 +160,7 @@ int main(int argc, char **argv)
   GS.deckCount[player0]--;
 
   addAdventurer(&GS, 5, player0);
-  GS.handCount[player0]--; // should get rid of the adventurer we are about to play
+  //GS.handCount[player0]--; // should get rid of the adventurer we are about to play
   cardEffect(adventurer, -1, -1, -1, &GS, 5, &coinBonus);
 
   // 2 extra treasures in hand, deck + discard should account for rest
@@ -192,7 +192,7 @@ int main(int argc, char **argv)
   GS.deckCount[player0]--;
 
   addAdventurer(&GS, 5, player0);
-  GS.handCount[player0]--; // should get rid of the adventurer we are about to play
+  //GS.handCount[player0]--; // should get rid of the adventurer we are about to play
   cardEffect(adventurer, -1, -1, -1, &GS, 5, &coinBonus);
 
   // 2 extra treasures in hand, deck + discard should account for rest
