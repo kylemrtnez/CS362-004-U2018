@@ -52,28 +52,25 @@ int main(int argc, char **argv)
 
   GS.handCount[player0]--; // should get rid of the adventurer we are about to play
   cardEffect(adventurer, -1, -1, -1, &GS, 5, &coinBonus);
-  printHand(&GS, GS.handCount[player0], player0);
 
   // stops after 2 cards
   if (GS.deckCount[player0] == 3)
-    printf("PASSED 1: deck count correct.");
+    printf("PASSED 1: deck count correct.\n");
   else 
-    printf("FAILED 1: deck count incorrect.");
+    printf("FAILED 1: deck count incorrect.\n");
 
   if (GS.handCount[player0] == 7)
-    printf("PASSED 1: hand count correct.");
+    printf("PASSED 1: hand count correct.\n");
   else 
-    printf("FAILED 1: hand count incorrect.");
+    printf("FAILED 1: hand count incorrect.\n");
 
 
   // no cards discarded
   if (GS.discardCount[player0] == 0)
-    printf("PASSED 1: discard count correct.");
+    printf("PASSED 1: discard count correct.\n");
   else 
-    printf("FAILED 1: discard count incorrect.");
+    printf("FAILED 1: discard count incorrect.\n");
 
-
-  printf("PASSED - Top 2 cards being treasures\n");
 
   /**********************************************************************
     * Test case: Last 2 cards are treasures
@@ -95,20 +92,20 @@ int main(int argc, char **argv)
 
   // no cards left in deck
   if (GS.deckCount[player0] == 0)
-    printf("PASSED 2: deck count correct.");
+    printf("PASSED 2: deck count correct.\n");
   else 
-    printf("FAILED 2: deck count incorrect.");
+    printf("FAILED 2: deck count incorrect.\n");
 
   if (GS.handCount[player0] == 7)
-    printf("PASSED 2: hand count correct.");
+    printf("PASSED 2: hand count correct.\n");
   else 
-    printf("FAILED 2: hand count incorrect.");
+    printf("FAILED 2: hand count incorrect.\n");
 
   // all other cards discarded
   if (GS.discardCount[player0] == 3)
-    printf("PASSED 2: discard count correct.");
+    printf("PASSED 2: discard count correct.\n");
   else 
-    printf("FAILED 2: discard count incorrect.");
+    printf("FAILED 2: discard count incorrect.\n");
 
   /**********************************************************************
     * Test case: Space in between treasure cards
@@ -130,19 +127,19 @@ int main(int argc, char **argv)
 
   // 1 card left in deck
   if (GS.deckCount[player0] == 1)
-    printf("PASSED 3: deck count correct.");
+    printf("PASSED 3: deck count correct.\n");
   else 
-    printf("FAILED 3: deck count incorrect.");
+    printf("FAILED 3: deck count incorrect.\n");
 
   if (GS.handCount[player0] == 7)
-    printf("PASSED 3: hand count correct.");
+    printf("PASSED 3: hand count correct.\n");
   else 
-    printf("FAILED 3: hand count incorrect.");
+    printf("FAILED 3: hand count incorrect.\n");
   // 2 cards discarded
   if (GS.discardCount[player0] == 2)
-    printf("PASSED 3: discard count correct.");
+    printf("PASSED 3: discard count correct.\n");
   else 
-    printf("FAILED 3: discard count incorrect.");
+    printf("FAILED 3: discard count incorrect.\n");
 
 
   /**********************************************************************
@@ -168,14 +165,14 @@ int main(int argc, char **argv)
 
   // 2 extra treasures in hand, deck + discard should account for rest
   if (GS.deckCount[player0] + GS.discardCount[player0] == 3)
-    printf("PASSED 4: deck count + discard count correct after shuffle");
+    printf("PASSED 4: deck count + discard count correct after shuffle.\n");
   else
-    printf("FAILED 4: deck count + discard count incorrect after shuffle");
+    printf("FAILED 4: deck count + discard count incorrect after shuffle.\n");
 
   if (GS.handCount[player0] == 7)
-    printf("PASSED 4: hand count correct.");
+    printf("PASSED 4: hand count correct.\n");
   else 
-    printf("FAILED 4: hand count incorrect.");
+    printf("FAILED 4: hand count incorrect.\n");
 
 
   /**********************************************************************
@@ -200,14 +197,14 @@ int main(int argc, char **argv)
 
   // 2 extra treasures in hand, deck + discard should account for rest
   if (GS.deckCount[player0] + GS.discardCount[player0] == 4)
-    printf("PASSED 5: deck count + discard count correct after shuffle");
+    printf("PASSED 5: deck count + discard count correct after shuffle.\n");
   else
-    printf("FAILED 5: deck count + discard count incorrect after shuffle");
+    printf("FAILED 5: deck count + discard count incorrect after shuffle.\n");
 
   if (GS.handCount[player0] == 6)
-    printf("PASSED 4: hand count correct.");
+    printf("PASSED 5: hand count correct.\n");
   else 
-    printf("FAILED 4: hand count incorrect.");
+    printf("FAILED 5: hand count incorrect.\n");
 
 
   printf("*** Adventurer card effect - tests complete ***\n\n");
