@@ -25,6 +25,7 @@ int main()
     // initialize the game state
     initializeGame(numPlayers, kcards, seed, &GS);
 
+    printf("***  Testing isGameOver()  ***\n");
     /* unit tests
         Conditions to test for:
            - provinces have run out
@@ -72,6 +73,7 @@ int main()
     assert(isGameOver(&GS));
     printf("isGameOver(): PASSED - Game ends after 4 piles empty\n");
 
+    printf("***  isGameOver(): PASSED - Correctly computes card numbers  ***\n\n");
     // test function call
     return 0;
 }
