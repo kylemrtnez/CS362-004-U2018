@@ -148,7 +148,7 @@ int main(int argc, char **argv)
            sea_hag);
   }
 
-  printf("*** Sea hag card effect: Testing complete ***\n");
+  printf("*** Sea hag card effect: Testing complete ***\n\n");
   return 0;
 }
 

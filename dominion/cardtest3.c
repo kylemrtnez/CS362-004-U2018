@@ -57,7 +57,7 @@ int main(int argc, char **argv)
   else
     printf("FAILED: Number of actions incorrect\n");
 
-  printf("*** Village card effect: Testing complete ***\n");
+  printf("*** Village card effect: Testing complete ***\n\n");
 
   return 0;
 }

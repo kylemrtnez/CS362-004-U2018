@@ -117,6 +117,6 @@ int main(int argc, char **argv)
   else
     printf("FAILED 3: Hand count incorrect.\n");
 
-  printf("*** Smithy card effect: Testing complete ***\n");
+  printf("*** Smithy card effect: Testing complete ***\n\n");
   return 0;
 }
