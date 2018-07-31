@@ -92,7 +92,6 @@ int main(int argc, char **argv)
   {
     // initializeGame already has randomness baked in
     r = initializeGame(numPlayers, kcards, seed, &GS);
-    printf("r = %d\n", r);
     // randomize player turn
     p = GS.whoseTurn = rand() % 2;
 
