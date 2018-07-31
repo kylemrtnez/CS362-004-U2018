@@ -42,7 +42,7 @@ int checkCard(int players, struct gameState *post, int ch1, int ch2, int ch3, in
 
 /**********************************************************************
 * testCard()
-* Description: Tests the adventrurer card
+* Description: Tests the village card
 * Parameters: 
 * Returns: 1 if tests passed, 0 if a test failed
 ***********************************************************************/
