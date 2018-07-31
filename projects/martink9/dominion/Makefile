@@ -35,5 +35,30 @@ player: player.c interface.o
 
 all: playdom player 
 
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+	echo "randomtestadventurer:" > randomtestadventurer.out
+	./randomtestadventurer >> randomtestadventurer.out
+	echo "" >> randomtestadventurer.out
+	echo "Coverage:" >> randomtestadventurer.out
+	gcov -b dominion.c >> randomtestadventurer.out
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+	echo "randomtestcard1:" > randomtestcard1.out
+	./randomtestcard1 >> randomtestcard1.out
+	echo "" >> randomtestcard1.out
+	echo "Coverage:" >> randomtestcard1.out
+	gcov -b dominion.c >> randomtestcard1.out
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	echo "randomtestcard2:" > randomtestcard2.out
+	./randomtestcard2 >> randomtestcard2.out
+	echo "" >> randomtestcard2.out
+	echo "Coverage:" >> randomtestcard2.out
+	gcov -b dominion.c >> randomtestcard2.out
+
+
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe randomtestadventurer randomtestadventurer.exe randomtestcard1 randomtestcard1.exe randomtestcard2 randomtestcard2.exe
