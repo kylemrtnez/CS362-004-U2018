@@ -1,0 +1,94 @@
+unittest1:
+***  Testing isGameOver()  ***
+***Testing end condition: Provinces have run out (provinces == 0)***
+isGameOver(): PASSED - Game does not end after initialization
+isGameOver(): PASSED - Game does not end when stack is 1 card left
+isGameOver(): PASSED - Game ends when stack is 0
+***PASSED: Provinces have run out end condition***
+
+***Testing end condition: 3 supply piles have run out***
+isGameOver(): PASSED - Game does not end after initialization
+isGameOver(): PASSED - Game does not end after 1 pile empty
+isGameOver(): PASSED - Game does not end after 2 piles empty
+isGameOver(): PASSED - Game ends after 3 piles empty
+isGameOver(): PASSED - Game ends after 4 piles empty
+***  isGameOver(): PASSED - Correctly computes card numbers  ***
+
+unittest2:
+***  Testing fullDeckCount()  ***
+fullDeckCount(): PASSED - correct values after initialization
+fullDeckCount(): PASSED - correct values after adding to discard
+fullDeckCount(): PASSED - correct values after adding to deck
+fullDeckCount(): PASSED - correct values after adding to hand
+***  fullDeckCount(): PASSED - Correctly computes card numbers  ***
+
+unittest3:
+***  Testing gainCard()  ***
+gainCard(): Testing gaining to discard
+gainCard(): PASSED - added to discard
+gainCard(): PASSED - correct values after adding to discard
+gainCard(): Testing gaining to deck
+gainCard(): PASSED - added to deck
+gainCard(): PASSED - correct values after adding to discard
+gainCard(): Testing gaining to hand
+gainCard(): PASSED - added to discard
+gainCard(): PASSED - correct values after adding to discard
+***  fullDeckCount(): PASSED - Correctly computes card numbers  ***
+
+unittest4:
+***  Testing getCost(): Implemented cards only  ***
+***  PASSED: getCost() returns correct costs  ***
+
+cardtest1:
+*** Adventurer card effect: Testing begins ***
+FAILED 1: deck count incorrect.
+FAILED 1: hand count incorrect.
+PASSED 1: discard count correct.
+FAILED 2: deck count incorrect.
+FAILED 2: hand count incorrect.
+FAILED 2: discard count incorrect.
+FAILED 3: deck count incorrect.
+FAILED 3: hand count incorrect.
+FAILED 3: discard count incorrect.
+FAILED 4: deck count + discard count incorrect after shuffle.
+FAILED 4: hand count incorrect.
+FAILED 5: deck count + discard count incorrect after shuffle.
+PASSED 5: hand count correct.
+*** Adventurer card effect - tests complete ***
+
+cardtest2:
+*** Smithy card effect: Testing begins ***
+Hand size: 6 vs GS hand size: 8
+PASSED 1: Hand count correct.
+Hand size: 6 vs GS hand size: 8
+PASSED 2: Hand count correct.
+Hand size: 6 vs GS hand size: 8
+PASSED 3: Hand count correct.
+*** Smithy card effect: Testing complete ***
+
+cardtest3:
+*** Village card effect: Testing begins ***
+PASSED: hand counts correct
+PASSED: Number of actions correct
+*** Village card effect: Testing complete ***
+
+cardtest4:
+*** Sea hag card effect: Testing begins ***
+Sea hag test PASSED: player 1's top deck is: 0 (s/b 0)
+Sea hag test PASSED: player 1's top discard is: 4 (s/b 4)
+Sea hag test PASSED: player 2's top deck is: 0 (s/b 0)
+Sea hag test PASSED: player 2's top discard is: 4 (s/b 4)
+Sea hag test PASSED: player 3's top deck is: 0 (s/b 0)
+Sea hag test PASSED: player 3's top discard is: 4 (s/b 4)
+Sea hag test PASSED: player 0's top deck is: 4 (s/b 4)
+Sea hag test FAILED: player 0's top discard is: 9 (s/b 25)
+*** Sea hag card effect: Testing complete ***
+
+Coverage:
+File 'dominion.c'
+Lines executed:36.89% of 591
+Branches executed:39.57% of 417
+Taken at least once:30.46% of 417
+Calls executed:16.84% of 95
+Creating 'dominion.c.gcov'
+
